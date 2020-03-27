@@ -1,0 +1,7 @@
+<nav class="navbar style sticky-top navbar-light">
+  <a class="navbar-brand" routerLink="/">{{title}}</a>
+  <!-- <a *ngIf="auth_service.isUserLoggedIn()" routerLink="/" class="nav-link">View Employees</a>
+  <a *ngIf="auth_service.isUserLoggedIn()" routerLink="/addemployee" class="nav-link">Add New Employee</a> -->
+  <a *ngIf="!auth_service.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+  <a *ngIf="auth_service.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
+</nav>

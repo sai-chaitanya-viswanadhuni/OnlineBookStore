@@ -1,0 +1,157 @@
+<div class="container">
+
+  <h3 style="text-align: center;">Create Book Record</h3>
+
+  <div class="row mt-5">
+    <div class="col-sm-8">
+      <form [formGroup]="bookForm" (ngSubmit)="addBook()">
+        <div class="form-group">
+          <label for="age">Title</label>
+          <input type="text" class="form-control" id="title" formControlName="title" [(ngModel)]="bookData.title"
+            placeholder="Enter Book Title">
+        </div>
+        <div class="form-group">
+          <label for="address">Author</label>
+          <input type="text" class="form-control" id="author" formControlName="author" [(ngModel)]="bookData.author"
+            placeholder="Enter Author Name">
+        </div>
+
+        <div class="form-group">
+          <label for="image-upload">Image Upload</label>
+          <input type="file" class="form-control" accept="image/*" (change)="onFileChanged($event)" style="height: 100%;">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Book</button><br><br>
+        <button type="reset" class="btn btn-primary">Clear</button>
+      </form>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+</div>
+
+
+<div class="container row">
+  <div class="col-md-12">
+    <h1>Upload Image</h1>
+  </div>
+</div>
+
+<div class="container row">
+  <div class="col-md-6">
+    <input type="file" (change)="onFileChanged($event)">
+  </div>
+  <div class="col-md-6">
+    <input type="button" (click)="onUpload()" value="upload">
+  </div>
+</div>
+<hr />
+<div class="container row">
+  <div class="col-md-12">
+    <div *ngIf=message>{{message}}</div>
+  </div>
+</div>
+
+<div class="container row">
+  <div class="col-md-6">
+    <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName" name="name" />
+  </div>
+  <div class="col-md-6">
+    <input type="button" (click)="getImage()" value="Get Image">
+  </div>
+</div>
+
+<div class="container row">
+  <div class="col-md-12">
+    <div *ngIf=retrievedImage>
+      {{retrievedImage}}
+      <img [src]="retrievedImage">
+    </div>
+  </div>
+</div>
+
+
+<!-- <h1>{{getImagess('blindness.jpg')}}</h1> -->
+
+<!-- <p-dataView #dv [value]="cars" [paginator]="true" [rows]="20" paginatorPosition="both" filterBy="brand"
+  [sortField]="sortField" [sortOrder]="sortOrder">
+  <p-header>
+    <div class="ui-helper-clearfix">
+      <div class="ui-g">
+        <div class="ui-g-12 ui-md-4">
+          <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By"
+            (onChange)="onSortChange($event)" [style]="{'min-width':'140px'}"></p-dropdown>
+        </div>
+        <div class="ui-g-6 ui-md-4 filter-container">
+          <div style="position:relative">
+            <input type="search" pInputText placeholder="Search by brand" (keyup)="dv.filter($event.target.value)">
+          </div>
+        </div>
+        <div class="ui-g-6 ui-md-4" style="text-align:right">
+          <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+        </div>
+      </div>
+    </div>
+  </p-header>
+  <ng-template let-car pTemplate="listItem">
+    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+      <div class="ui-g-12 ui-md-3" style="text-align:center">
+        <div *ngIf=retrievedImage>
+          <img [src]="retrievedImage">
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-8 car-details">
+        <div class="ui-g">
+          <div class="ui-g-2 ui-sm-6">Vin: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{car.vin}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6">Year: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{car.year}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6">Brand: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{car.brand}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6">Color: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{car.color}}</b></div>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-1 search-icon">
+        <button pButton type="button" icon="pi pi-search" (click)="selectCar($event, car)"></button>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template let-car pTemplate="gridItem">
+    <div style="padding:.5em" class="ui-g-12 ui-md-3">
+      <p-panel [header]="car.vin" [style]="{'text-align':'center'}">
+        <div *ngIf=retrievedImage>
+          <img [src]="retrievedImage">
+        </div>
+        <div class="car-detail">{{car.year}} - {{car.color}}</div>
+        <hr class="ui-widget-content" style="border-top:0">
+        <button pButton type="button" icon="pi pi-search" (click)="selectCar($event, car)"
+          style="margin-top:0"></button>
+      </p-panel>
+    </div>
+  </ng-template>
+</p-dataView>
+
+<p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"
+  [style]="{width: '225px'}" (onAfterHide)="onDialogHide()">
+  <div class="ui-g" *ngIf="selectedCar">
+    <div class="ui-g-12" style="text-align:center">
+      <div *ngIf=retrievedImage>
+        <img [src]="retrievedImage">
+      </div>
+    </div>
+    <div class="ui-g-4">Vin: </div>
+    <div class="ui-g-8">{{selectedCar.vin}}</div>
+
+    <div class="ui-g-4">Brand: </div>
+    <div class="ui-g-8">{{selectedCar.brand}}</div>
+
+    <div class="ui-g-4">Year: </div>
+    <div class="ui-g-8">{{selectedCar.year}}</div>
+
+    <div class="ui-g-4">Color: </div>
+    <div class="ui-g-8">{{selectedCar.color}}</div>
+  </div>
+</p-dialog> -->

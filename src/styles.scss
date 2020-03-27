@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/primeng/resources/themes/omega/theme.css';
+@import '../node_modules/primeng/resources/primeng.min.css';
+@import '../node_modules/primeicons/primeicons.css';
+
+.page-header {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.right {
+  float: right;
+}
+
+.status-message {
+  border: 1px solid #f1ecec;
+  padding: 6px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.success-text {
+  color: green;
+  margin: 0px !important;
+}
+
+.error-text {
+  color: red;
+  margin: 0px !important;
+}
+
+.box-header {
+  text-align: center;
+  background-color: #0d79b9;
+  padding: 14px;
+  color: white;
+  font-size: 22px;
+}
+
+
+.bottom-header {
+  background-color: #f1ecec;
+  font-size: 16px;
+  color: #404040;
+  padding: 12px;
+}
+
+.register-class {
+  text-align: center;
+  float: right;
+  background: gray;
+  color: white;
+  padding: 12px;
+  margin: -12px;
+}
+
+.form-box {
+  border: 1px solid #f1ecec;
+  border-bottom: 0px;
+}

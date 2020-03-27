@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="row mt-4">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <div class="box-header">Register</div>
+      <div class="form-box">
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+          <div class="form-group">
+            <input type="text" class="form-control" id="username" formControlName="username"
+              [(ngModel)]="signUpData.username" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="password" formControlName="password"
+              [(ngModel)]="signUpData.password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="email" formControlName="email" [(ngModel)]="signUpData.email"
+              placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="mobilenumber" formControlName="mobilenumber"
+              [(ngModel)]="signUpData.mobilenumber" placeholder="Mobile Number">
+          </div>
+          <button type="submit" class="btn btn-success">SignUp</button>
+        </form>
+      </div>
+      <div class="bottom-header">Existing User ?<a routerLink="/login"><span class="register-class">Login here</span></a></div>
+    </div>
+  </div>
+
+</div>

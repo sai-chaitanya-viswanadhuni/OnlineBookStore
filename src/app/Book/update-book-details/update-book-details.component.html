@@ -1,0 +1,18 @@
+<div class="container">
+
+    <h3 style = "text-align: center;">Update Book Record</h3>
+  
+    <form [formGroup]="bookForm" (ngSubmit)="updateBook()">
+      <div class="form-group">
+        <label for="age">Title</label>
+        <input type="text" class="form-control" id="title" formControlName="title" [(ngModel)]="bookData.title" placeholder="Enter Book Title">
+      </div>
+      <div class="form-group">
+        <label for="address">Author</label>
+        <input type="text" class="form-control" id="author" formControlName="author" [(ngModel)]="bookData.author" placeholder="Enter Author Name">
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+  
+  </div>
+  

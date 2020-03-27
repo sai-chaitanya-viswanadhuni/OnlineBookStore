@@ -1,0 +1,56 @@
+.style
+{
+    background-color: #ffffff;
+    border-bottom: 1px solid #bcd;
+    box-shadow: 0 0 2px rgba(187,204,221,0.7);
+    border-top: 5px solid #0d79b9;
+}
+
+.navbar-light .navbar-brand {
+    color:black;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+li.dropdown
+{
+    list-style: none;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.dropdown-menu
+{
+    margin: 1.05rem 0 0;
+    min-width: 7.5rem;
+    background-color: #d9eefd;
+    border: 1px solid #bcd;
+    box-shadow: 0 0 2px rgba(187,204,221,0.7);    
+}
+
+.dropdown-item
+{
+    background-color: #d9eefd;
+    color: black;
+    font-weight: 600;    
+}
+
+@media only screen and (max-width: 480px) {
+    img{
+        display: none;
+    }
+    .dropdown-menu
+    {
+        margin: 0.5rem 0 0;
+    }    
+    .navbar-brand
+    {
+        font-size: 0.9rem;
+    }
+}
